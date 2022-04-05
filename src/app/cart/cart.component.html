@@ -1,0 +1,91 @@
+<h1>Cart</h1>
+<h3 *ngIf="items.length <1" class="text-success">Cart is Empty! Shop Now by Navigating to My Store!</h3>
+<a [routerLink]="['/shipping']" >Shipping Prices</a><br>
+
+<div class="col-md-8 cart">
+<div class="col" *ngFor="let item of items">
+  <div *ngIf="item.id==1"><img src="assets/images/iphonexl.png" ></div>
+  <div *ngIf="item.id==2"><img src="assets/images/iphone13mini.png" ></div>
+  <div *ngIf="item.id==3"><img src="assets/images/iphonepro.png" ></div>
+  <div class="row text-muted">{{ item.name }}</div>
+  <div class="row">{{item.price | currency:'USD'}}</div>
+  <button title="removefromcart" (click)="removeitem(item)"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+  </svg></button>
+</div>
+</div>
+
+
+<label for="name">Name</label><br>
+<div class="input-group mb-3 w-30">
+    <div class="input-group-prepend">
+    </div>
+    <input type="text" class="form-control"  aria-label="Name" [(ngModel)]="name">
+  </div>
+  <label for="name">Address</label><br>
+  <div class="input-group mb-3 w-30">
+    <div class="input-group-prepend">
+    </div>
+    <input type="text" class="form-control" aria-label="Address" [(ngModel)]="address">
+  </div>
+<label for="shipping">Choose a Shipping:</label>
+  <div class="input-group mb-3">
+    <select class="form-select w-50" name="shipping" aria-label="Default select example"  >
+        <option selected>Prices</option>
+
+        <option  *ngFor="let i of shipping" title={{i.type}}>{{i.price|currency:'USD'}}</option>
+      </select>
+  </div>
+  <button class="btn btn-success"  (click)="purchase(name)">Purchase</button><br>
+
+  <!-- <div class="cart_section" >
+    <div class="container-fluid" >
+        <div class="row" >
+            <div class="col-lg-10 offset-lg-1" >
+                <div class="cart_container">
+                    <div class="cart_title">Shopping Cart<small> (1 item in your cart) </small></div>
+                    <div class="cart_items">
+                        <ul class="cart_list">
+                            <li class="cart_item clearfix">
+                                <div class="cart_item_image"><img src="https://i.imgur.com/qqBRWD5.jpg" alt=""></div>
+                                <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+                                    <div class="cart_item_name cart_info_col">
+                                        <div class="cart_item_title">Name</div>
+                                        <div class="cart_item_text">{{ items.name }}</div>
+                                    </div>
+                                    <div class="cart_item_color cart_info_col">
+                                        <div class="cart_item_title">Color</div>
+                                        <div class="cart_item_text"><span style="background-color:#999999;"></span>Silver</div>
+                                    </div>
+                                    <div class="cart_item_quantity cart_info_col">
+                                        <div class="cart_item_title">Quantity</div>
+                                        <div class="cart_item_text">1</div>
+                                    </div>
+                                    <div class="cart_item_price cart_info_col">
+                                        <div class="cart_item_title">Price</div>
+                                        <div class="cart_item_text">₹22000</div>
+                                    </div>
+                                    <div class="cart_item_total cart_info_col">
+                                        <div class="cart_item_title">Total</div>
+                                        <div class="cart_item_text">₹22000</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order_total">
+                        <div class="order_total_content text-md-right">
+                            <div class="order_total_title">Order Total:</div>
+                            <div class="order_total_amount">₹22000</div>
+                        </div>
+                    </div>
+                    <div class="cart_buttons"> 
+                        <button type="button" class="button cart_button_clear">Continue Shopping</button> 
+                        <button type="button" class="button cart_button_checkout">Purchase</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

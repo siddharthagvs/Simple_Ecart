@@ -1,0 +1,49 @@
+<h1>Product-Details!</h1>
+
+  <div class="container" >
+		<div class="card">
+			<div class="container-fliud" *ngIf="product_values">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" *ngIf="productid==1"><img src="assets/images/iphonexl.png" /></div>
+						  <div class="tab-pane active" *ngIf="productid==2"><img src="assets/images/iphone13mini.png" /></div>
+						  <div class="tab-pane active" *ngIf="productid==3" ><img src="assets/images/iphonepro.png" /></div>
+						</div>						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{ product_values.name }}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+						<p class="product-description">{{ product_values.description }}</p>
+						<h4 class="price"> Price: <span>{{ product_values.price |currency:'USD' }}</span></h4>
+						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+						<h5 class="colors">colors:
+							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+							<span class="color green"></span>
+							<span class="color blue"></span>
+						</h5>
+						<div class="action">
+							<button class="btn btn-primary"  (click)="addToCart(product_values,productid.value)">Add to Cart</button>&nbsp;
+              <button> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+              </svg></button>
+              
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  

@@ -1,0 +1,14 @@
+<h1 style="font-family: fantasy;">Shipping Prices</h1><br>
+<!-- <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Overnight</td>
+        <td>25.99$</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+<div class="shipping-item" *ngFor="let shipping of shippingprices">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>
